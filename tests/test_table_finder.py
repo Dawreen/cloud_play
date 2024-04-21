@@ -6,6 +6,8 @@ from google.cloud import bigquery
 from google.api_core.exceptions import Conflict
 
 
+# This way of testing is a bit too much.
+# But I still don't know how to mock stuff!
 
 LOGGER = logging.getLogger(__name__)
 
