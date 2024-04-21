@@ -1,0 +1,2 @@
+[run]
+omit = test/test_table_finder.py
