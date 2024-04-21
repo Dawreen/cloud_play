@@ -7,7 +7,18 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+pytest = "^8.1.1"
+google-cloud-bigquery = "^3.21.0"
+google-cloud-storage = "^2.16.0"
 
+[tool.pytest.ini_options]
+log_cli = true
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+[tool.poetry.scripts]
+script = "cloud_play.main:main"
 
 [build-system]
 requires = ["poetry-core"]
