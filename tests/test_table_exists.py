@@ -16,7 +16,7 @@ def get_project() -> str:
     with open('tests/my_conf.json', 'r') as f:
         return json.load(f)["project_id"]
 
-def test_table_finder():
+def test_table_exists():
     project_id = get_project() # Can't create project
     
     client = bigquery.Client()
