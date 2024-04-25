@@ -19,15 +19,20 @@ def test_file_finder():
     client = storage.Client()
 
     # Create bucket
-    bucket = client.create_bucket("bucket_test_dan")
+    bucket_id = "bucket_test_dan"
+    bucket = client.create_bucket(bucket_id)
 
     # Create file in bucket
-    blob = bucket.blob("blob_test_dan")
+    blob_id = "blob_test_dan"
+    blob = bucket.blob(blob_id)
     with blob.open("w") as f:
         f.write("Hello world")
 
     # assert the path where crated is the same as the one from the function
-    assert True
+    assert file_finder(blob_id)[0] == f"{bucket_id}/{blob_id}"
 
     # Delete file and bucket
+    bucket.delete()
+    
     # Test on not existing file
+    assert file_finder(blob_id) == []
